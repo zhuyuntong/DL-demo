@@ -2,8 +2,6 @@
 
 This repository contains the implementation of a draft approach to target speaker separation (TSS) using pitch information as an auxiliary feature. The work integrates pitch extraction into the TSS task through two distinct strategies: concatenation and joint training. The following sections provide an overview of the model architecture, training strategies, and experimental setup used in this study. 
 
-@ Signal Analysis and Interpretation Laboratory (SAIL), USC Viterbi
-
 ## Introduction
 
 Target speaker separation (TSS) has made significant strides with the development of deep learning and speech and language processing (SLP) technologies. These advancements enable the extraction of a target speaker's voice in environments with multiple simultaneous speakers, which is critical for enhancing AI-driven conversational systems. Traditional TSS methods, such as VoiceFilter, Atss-Net, and spex++, have focused on improving various components within the encoder-separator-decoder framework, leading to improved accuracy and robustness.

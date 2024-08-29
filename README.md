@@ -30,7 +30,7 @@ The baseline model, a small-scale Multi-Block RNNoise (MBRNN) system, serves as 
 
 The proposed architecture consists of three main components:
 1. **Speaker Embedding Extraction Module**: Processes an enrollment utterance to generate a 128-dimensional speaker embedding.
-2. **Target Pitch Extraction Module**: Accepts the magnitude spectrogram of the mixed audio along with the target speaker embedding, outputting the 1-dimensional pitch value of the target speaker.
+2. **Target Extraction Module**: Inputs the magnitude of the mixed audio along with the target speaker embedding
 3. **TSS Module**: Utilizes the mixed utterance, speaker embedding, and extracted pitch to estimate the voice of the target speaker.
 
 ### Training Strategies Incorporating Pitch Information

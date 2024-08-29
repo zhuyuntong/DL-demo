@@ -83,4 +83,5 @@ where the element-wise product of the mixed spectrogram and the estimated mask \
   <img src="img/rnnBlock.png" alt="RNN in MBRNN Module">
   <br>
   <b>Figure 4:</b> The structure of an RNN block within the MBRNN module, which includes a fully connected layer followed by an RNNoise-like module.
+  
 </p>

@@ -1,4 +1,4 @@
-# Target Speaker Separation Using Joint Training with Pitch Information
+# Target Speaker Separation Project
 
 This repository contains the implementation of a draft approach to target speaker separation (TSS) using pitch information as an auxiliary feature. The work integrates pitch extraction into the TSS task through two distinct strategies: concatenation and joint training. The following sections provide an overview of the model architecture, training strategies, and experimental setup used in this study. 
 

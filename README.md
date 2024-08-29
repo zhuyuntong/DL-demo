@@ -53,13 +53,12 @@ This method involves simultaneous optimization of the pitch extraction and TSS m
 
 The pitch extraction module is based on an LSTM architecture. It processes the spectrogram of the mixed utterance and the target speaker embedding, outputting a time series of pitch values (\( f_0 \)) for the target speaker. The ground-truth pitch values are derived using the RAPT algorithm applied to the pre-mixed clean audio, with the pitch range set between 60 and 404 Hz. This task is framed as a regression problem, where the L1 loss function is used to minimize the difference between the predicted and actual pitch values:
 
-![extraction as regression problem and adopt L1 loss](image-2.png)
+![extraction as regression problem and adopt L1 loss](img/image-2.png)
 
 where \( f̂_0 \) is the predicted pitch and \( f_0 \) is the ground truth.
 
 To evaluate the accuracy of the pitch extraction, we use the precision rate (PR), defined as:
-
-![precision rate for evaluation](image-1.png)
+![precision rate for evaluation](img/image-1.png)
 
 where \( N_{0.05} \) is the number of frames where the predicted pitch deviates by less than 5% from the ground truth, and \( N \) is the total number of frames.
 
@@ -69,7 +68,7 @@ The Multi-Block RNNoise (MBRNN) model serves as the backbone of our speech separ
 
 To improve the model's capacity to represent complex features, the RNN block is repeated four times. Additionally, cumulative layer normalization (cLN) is applied between these blocks to stabilize and enhance training efficiency. The Conv1D layer is employed to expedite the computation of the short-time Fourier transform (STFT), and only the magnitude spectrogram \( X \) of the mixed audio is fed into the model. The phase spectrogram \( P \) is utilized later in the pipeline to reconstruct the estimated target speech using a Conv-Trans1D layer, which performs an inverse STFT (iSTFT). This process is mathematically expressed as:
 
-![perform inverse short-time Fourier transform to get the estimated target speech](image.png)
+![perform inverse short-time Fourier transform to get the estimated target speech](img/image.png)
 
 where the element-wise product of the mixed spectrogram and the estimated mask \( M \) is computed. The final output is the estimated target speech, with the training objective being the scale-invariant signal-to-noise ratio (SI-SNR).
 

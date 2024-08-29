@@ -22,7 +22,7 @@ To integrate the extracted pitch information into the TSS framework, following t
 - **Concatenation Training**: Directly concatenating the extracted pitch with speaker embeddings before feeding them into the TSS model.
 - **Joint Training**: Simultaneously training the pitch extraction and TSS models to optimize both processes together.
 
-The baseline model, a small-scale Multi-Block RNNoise (MBRNN) system, serves as the foundation for these strategies.
+The baseline model, a small-scale RNNoise system, serves as the foundation for these strategies.
 
 ## Model Architecture
 
@@ -62,9 +62,9 @@ To evaluate the accuracy of the pitch extraction, we use the precision rate (PR)
 
 where \( N_{0.05} \) is the number of frames where the predicted pitch deviates by less than 5% from the ground truth, and \( N \) is the total number of frames.
 
-### Multi-Block RNNoise (MBRNN)
+### RNNoise w/ hierarchic blocks
 
-The Multi-Block RNNoise (MBRNN) model serves as the backbone of our speech separation system and is a modification of the established RNNoise model, widely used in speech enhancement. The MBRNN architecture, shown in Figure 4, features multiple RNN blocks. Each block consists of a fully connected (FC) layer followed by an RNNoise-like module, designed to compress and process the features after concatenation of the speaker embedding and the magnitude spectrogram.
+The  model serves as the backbone of our speech separation system and is a modification of the established RNNoise model, widely used in speech enhancement. The RNN architecture, shown in Figure 4, features multiple RNN blocks. Each block consists of a fully connected (FC) layer followed by an RNNoise-like module, designed to compress and process the features after concatenation of the speaker embedding and the magnitude spectrogram.
 
 To improve the model's capacity to represent complex features, the RNN block is repeated four times. Additionally, cumulative layer normalization (cLN) is applied between these blocks to stabilize and enhance training efficiency. The Conv1D layer is employed to expedite the computation of the short-time Fourier transform (STFT), and only the magnitude spectrogram \( X \) of the mixed audio is fed into the model. The phase spectrogram \( P \) is utilized later in the pipeline to reconstruct the estimated target speech using a Conv-Trans1D layer, which performs an inverse STFT (iSTFT). This process is mathematically expressed as:
 
